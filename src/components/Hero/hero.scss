@@ -1,0 +1,28 @@
+@import '../../scss/variables';
+
+.hero {
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    height: 267px;
+    background: url("../../images/header-bg.jpg") 46% 27% no-repeat;
+
+    @media (min-width: $tablet) {
+      height: 100vh;
+      max-height: 912px;
+    }
+
+    @media (min-width: $desktop) {
+      max-height: 1080px;
+    }
+
+  }
+
+  &__scroll {
+    @media (min-width: $tablet) {
+      margin-top: auto;
+      margin-bottom: 53px;
+    }
+  }
+}

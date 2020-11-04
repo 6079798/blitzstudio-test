@@ -1,0 +1,41 @@
+@import 'fonts';
+@import 'variables';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  &::before, &::after {
+    box-sizing: border-box;
+  }
+}
+
+.page {
+  position: relative;
+  min-width: 320px;
+  background: $backgroundColor;
+  color: $textColor;
+  font-family: $bodyFont;
+
+  &__container {
+    max-width: 1920px;
+    margin: auto;
+  }
+}
+
+.title {
+  font-size: 30px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 6px;
+
+  @media (min-width: $tablet) {
+    font-size: 60px;
+    letter-spacing: 6px;
+    margin-bottom: 48px;
+  }
+
+}
+

@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
 
-function App() {
+import Header from "./components/Header/Header";
+import Hero from "./components/Hero/Hero";
+import About from "./components/About/About";
+import DummySection from "./components/DummySection";
+import useFixed from "./hooks/useFixed";
+
+const dummyData = [
+  {
+    id: "portfolio",
+    title: "Portfolio",
+    background: "#E01931"
+  },
+  {
+    id: "contacts",
+    title: "Contact",
+    background: "#FC6042"
+  }
+];
+
+const App = () => {
+  const { isFixed, element } = useFixed();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="page">
+      <Header fixed={isFixed} />
+      <Hero element={element} />
+      <About />
+      {dummyData.map((item, idx) => (
+        <DummySection key={idx} {...item} />
+      ))}
     </div>
   );
-}
+};
 
 export default App;

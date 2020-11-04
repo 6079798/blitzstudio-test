@@ -1,0 +1,102 @@
+@import '../../scss/variables';
+
+.nav-toggle {
+  cursor: pointer;
+  position: absolute;
+  top: 36px;
+  left: 46px;
+  z-index: 1;
+  border: 0;
+  background: none;
+  outline: none;
+  color: $navColor;
+  font-family: $navFont;
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+
+  @media (min-width: $tablet) {
+    display: none;
+  };
+}
+
+.nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #a1a6ac;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+
+  @media (min-width: $tablet) {
+    position: relative;
+    height: auto;
+    transform: translateX(0);
+    background: transparent;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      display: block;
+      height: 1px;
+      width: 90%;
+      background: $navColor;
+    }
+  }
+
+  &--show {
+    transform: translateX(0);
+  }
+
+  &__links {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+    @media (min-width: $tablet) {
+      flex-direction: row;
+    }
+
+    li + li {
+      margin-top: 10px;
+
+      @media (min-width: $tablet) {
+        margin-top: 0;
+      }
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    padding: 20px;
+    color: $navColor;
+    font-family: $navFont;
+    font-size: 24px;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+
+    @media (min-width: $tablet) {
+      padding: 35px 30px;
+    }
+
+    &--active {
+      color: $navLinkHover;
+    }
+
+    &:hover {
+      color: $navLinkHover;
+    }
+  }
+}
